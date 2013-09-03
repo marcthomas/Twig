@@ -102,8 +102,6 @@ abstract class Twig_Template implements Twig_TemplateInterface
      */
     public function displayParentBlock($name, array $context, array $blocks = array())
     {
-        $name = (string) $name;
-
         if (isset($this->traits[$name])) {
             $this->traits[$name][0]->displayBlock($name, $context, $blocks, false);
         } elseif (false !== $parent = $this->getParent($context)) {
@@ -126,8 +124,6 @@ abstract class Twig_Template implements Twig_TemplateInterface
      */
     public function displayBlock($name, array $context, array $blocks = array(), $useBlocks = true)
     {
-        $name = (string) $name;
-
         if ($useBlocks && isset($blocks[$name])) {
             $template = $blocks[$name][0];
             $block = $blocks[$name][1];
@@ -212,7 +208,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      */
     public function hasBlock($name)
     {
-        return isset($this->blocks[(string) $name]);
+        return isset($this->blocks[$name]);
     }
 
     /**
