@@ -372,7 +372,7 @@ class Twig_Environment
     /**
      * Tries to load a template consecutively from an array.
      *
-     * Similar to loadTemplate() but it also accepts Twig_TemplateInterface instances and an array
+     * Similar to loadTemplate() but it also accepts Twig_Template instances and an array
      * of templates where each is tried to be loaded.
      *
      * @param string|Twig_Template|array $names A template or an array of templates to try consecutively
@@ -449,7 +449,7 @@ class Twig_Environment
      *
      * @param Twig_Lexer A Twig_Lexer instance
      */
-    public function setLexer(Twig_LexerInterface $lexer)
+    public function setLexer(Twig_Lexer $lexer)
     {
         $this->lexer = $lexer;
     }
@@ -488,7 +488,7 @@ class Twig_Environment
      *
      * @param Twig_Parser A Twig_Parser instance
      */
-    public function setParser(Twig_ParserInterface $parser)
+    public function setParser(Twig_Parser $parser)
     {
         $this->parser = $parser;
     }
@@ -526,7 +526,7 @@ class Twig_Environment
      *
      * @param Twig_Compiler $compiler A Twig_Compiler instance
      */
-    public function setCompiler(Twig_CompilerInterface $compiler)
+    public function setCompiler(Twig_Compiler $compiler)
     {
         $this->compiler = $compiler;
     }
@@ -534,11 +534,11 @@ class Twig_Environment
     /**
      * Compiles a node and returns the PHP code.
      *
-     * @param Twig_NodeInterface $node A Twig_NodeInterface instance
+     * @param Twig_Node $node A Twig_Node instance
      *
      * @return string The compiled PHP source code
      */
-    public function compile(Twig_NodeInterface $node)
+    public function compile(Twig_Node $node)
     {
         return $this->getCompiler()->compile($node)->getSource();
     }
