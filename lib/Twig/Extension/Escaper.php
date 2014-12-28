@@ -59,11 +59,6 @@ class Twig_Extension_Escaper extends Twig_Extension
      */
     public function setDefaultStrategy($defaultStrategy)
     {
-        // for BC
-        if (true === $defaultStrategy) {
-            $defaultStrategy = 'html';
-        }
-
         $this->defaultStrategy = $defaultStrategy;
     }
 
